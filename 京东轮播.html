@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box{
+				width: 790px;
+				height: 340px;
+				margin: 50px auto;
+				position: relative;		
+			}
+			.box> ul{
+				width: 100%;
+				height: 100%;
+				z-index: 1;		
+			}
+			.box >ul> li{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			.box >ol{
+				position: absolute;
+				height: 40px;
+				width: 220px;
+				left: 50%;
+				top: :20%;
+				z-index: 2;
+				text-align: center;
+				margin-left: -125px;
+				margin-top: -50px;
+				background-color: rgba(255,255,255,0.3);
+				line-height: 5px;
+			}
+			.box >ol li{
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background-color: white;
+				float: left;
+				margin-left: 20px;
+				margin-top: 10px;
+			}
+			.box >ol li.cur{
+				background-color: paleturquoise;
+			}
+			span{
+				width: 30px;
+				height: 80px;
+				position: absolute;
+				background-color: rgba(255,255,255,0.3);
+				top: 0;
+				left: 10px;
+				text-align: center;
+				margin-top:130px ;
+				z-index: 3;
+			}
+			span:nth-child(2){
+				margin-left: 740px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><img src="img/11.jpg"/></li>
+				<li><img src="img/12.jpg"/></li>
+				<li><img src="img/13.jpg"/></li>
+				<li><img src="img/14.jpg"/></li>
+				<li><img src="img/15.jpg"/></li>
+			</ul>
+			<span>下一张</span>
+			<span>上一张</span>
+		</div>
+	</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+	$aLi=$("ul li");
+	$box=$(".box");
+	$aSpan=$("span").eq(0);//下一张
+	$oSpan=$("span").eq(1);//上一张
+	var key=0,key1=$aLi.length;
+	$(".box").append("<ol></ol>");
+	for(var i=0;i<$("ul li").length;i++){
+		$(".box>ol").append("<li></li>")
+	}
+	$aLi.eq(0).css("z-index",key+2).fadeIn(300);
+	$oLi=$("ol li");
+	$oLi.eq(0).addClass("cur");
+	//console.log($oLi)
+	$oLi.mouseover(function(){
+		$(this).addClass("cur").siblings().removeClass();
+		var index=$(this).index();
+		$aLi.stop().fadeOut(300).eq(index).stop().fadeIn(300);
+	})
+	$aSpan.click(function(){
+		//console.log($aLi11);
+		key=++key%$aLi.length;
+		$oLi.eq(key).addClass("cur").siblings().removeClass();
+		var index=$(this).index();
+		$aLi.stop().fadeOut(300).eq(key).stop().fadeIn(300);
+	})
+	$oSpan.click(function(){
+		//console.log($aLi11);
+		
+		key1=--key1%$aLi.length;
+		$oLi.eq(key1).addClass("cur").siblings().removeClass();
+		var index=$(this).index();
+		$aLi.stop().fadeOut(300).eq(key1).stop().fadeIn(300);
+	})
+	ImagePlay();
+	function ImagePlay(){
+		clearInterval($box.timer);
+		$box.timer=setInterval(function () {
+			key=++key%$aLi.length;
+			$oLi.eq(key).addClass("cur").siblings().removeClass();
+			$aLi.stop().fadeOut(300).eq(key).stop().fadeIn(300);
+		},2000);
+	}
+	$box.mouseover(function () {
+        clearInterval($box.timer);
+    });
+    $box.mouseout(function () {
+        ImagePlay();
+    });
+</script>

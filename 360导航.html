@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box{
+				width: 1000px;
+				margin: 50px auto;
+				border: 1px solid paleturquoise;
+			}
+			.box ul{
+				width: 100%;
+				height: 400px;
+				overflow: hidden;
+				 text-align: center;
+			}
+			.box ul li{
+				width:calc(25% - 10px);
+				height: 125px;
+				border: 1px solid paleturquoise;
+				float: left;
+				margin-left: 10px;
+				margin-bottom: 10px;
+				box-sizing: border-box;
+				position: relative;
+				overflow: hidden;
+			}
+			.box ul li+li{
+				margin-left: 10px;
+			}
+			.box ul li p{
+				width: 100%;
+				height: 50px;
+				position: absolute;
+				bottom: -50px;
+				left: 0;
+			}
+			.box ul li i{
+				display: block;
+				width: 16px;
+				height: 16px;
+				background: url(img01/bg.png);
+				background-position-y: -4px;
+	            float: left;
+	            margin-top: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<!--<li><img src="img01/01.JPG"/><p>百度一下你就知道</p></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>-->
+			</ul>
+		</div>
+	</body><script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+	$box=$(".box");
+	$oUl=$box.find("ul");
+	var str='<li>'+
+                '<img src="img01/01.JPG" alt="">'+
+                '<p><i class="icon_bd"></i>百度一下，你就知道</p>'+
+            '</li>';
+    var img=["img01/01.JPG","img01/02.JPG","img01/03.JPG","img01/04.JPG","img01/05.JPG","img01/06.JPG","img01/07.JPG","img01/08.JPG"];
+    $.each(img, function(index,ele) {
+    	var str='<li>'+
+                '<img src='+ele+'>'+
+                '<p><i class="icon_bd" style="background-position-y:'+(index*-25-4)+'+"></i>百度一下，你就知道</p>'+
+            '</li>';
+            
+            $oUl.append(str);
+    });
+</script>
+</html>
+<script>
+	
+</script>

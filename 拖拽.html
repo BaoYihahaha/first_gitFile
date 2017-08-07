@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: paleturquoise;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+	$box=$(".box");
+	$(window).mousemove(function(ev){
+		$box.css({
+			left:ev.clientX+"px",
+			top:ev.clientY+"px"
+		})
+	})
+</script>

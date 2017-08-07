@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:  none;
+        }
+
+        .box{
+            width: 650px;
+            height: 250px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .box ul{
+            position: relative;
+            z-index: 3;
+        }
+        .box ul li{
+            position: absolute;
+            width:650px;
+            top:0px;
+            left:0px;
+        }
+        .box ol{
+            position: absolute;
+            z-index: 4;
+            bottom: 20px;
+            right: 20px;
+        }
+        .box ol li{
+            width:25px;
+            height:25px;
+            background: #666;
+            border:red 1px solid;
+            float: left;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+        }
+        .box ol li + li{
+            margin-left: 10px;
+        }
+        .box ol li.cur{
+            border: 1px solid #000000;
+            background: #039eff;
+        }
+    </style>
+		</style>
+	</head>
+	<body>
+		<div class="box">
+        <ul>
+            <li><img src="img/01.jpg"></li>
+            <li><img src="img/02.jpg"></li>
+            <li><img src="img/03.jpg"></li>
+            <li><img src="img/04.jpg"></li>
+            <li><img src="img/05.jpg"></li>
+        </ul>
+        <!--<ol>
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>-->
+    </div>
+	</body>
+</html>

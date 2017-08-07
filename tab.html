@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box{
+				width: 500px;
+				height: 250px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+			}
+			.box ul{
+				width: 500px;
+				height: 50px;
+				background-color: paleturquoise;
+				
+			}
+			.box >ul> li{
+				width: 100px;
+				height: 50px;
+				float: left;
+				margin-left: 15px;
+				color: white;
+				text-align: center;
+			}
+			.block{
+				width: 500px;
+				height: 200px;
+				display: none;
+			}
+			.box >ul> li.cur{
+				background-color: peachpuff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>第一页</li>
+				<li>第二页</li>
+				<li>第三页</li>
+				<li>第四页</li>
+			</ul>
+			<div class="block">
+				1425346465
+			</div>
+			<div class="block">
+				2432435455
+			</div>
+			<div class="block">
+				3534576878
+			</div>
+			<div class="block">
+				46568798990
+			</div>
+		</div>
+	</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+	$(".box >ul> li").click(function(){
+		/*$(".box >ul> li").removeClass("cur");
+		$(this).addClass("cur");*/
+		$(this).addClass("cur").siblings().removeClass("cur");
+		$(".block").hide();
+		$(".block").eq($(this).index(".box >ul> li")).show();
+		//alert($(this).index(").box >ul> li"))
+		
+	})
+</script>

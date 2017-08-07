@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="append" />
+		<input type="button" value="appendTo" />
+		<input type="button" value="prepend" />
+		<input type="button" value="prependTo" />
+		<input type="button" value="after" />
+		<input type="button" value="before" />
+		<input type="button" value="unwrap" />
+		<input type="button" value="wrap" />
+		<input type="button" value="remove" />
+		<div class="box"></div>
+		<ul>
+			<li>213223432</li>
+			<li>213223432</li>
+		</ul>
+	</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+	$("input").eq(0).click(function(){
+		$(".box").append("<h1>235465456767</h1>");
+	})
+	$("input").eq(1).click(function(){
+		$("<h1>235465456767</h1>").appendTo(".box");
+	})
+	$("input").eq(2).click(function(){
+		$(".box").prepend("<h1>235465456767</h1>");
+	})
+	$("input").eq(3).click(function(){
+		$("<h1>235465456767</h1>").prependTo(".box");
+	})
+	$("input").eq(4).click(function(){
+		$("<h1>235465456767</h1>").after(".box");
+	})
+	$("input").eq(5).click(function(){
+		$("<h1>235465456767</h1>").before(".box");
+	})
+	$("input").eq(6).click(function(){
+		$("li").unwrap();
+	})
+	$("input").eq(7).click(function(){
+		$("li").wrap("<ul></ul>");
+	})
+	$("input").eq(8).click(function(){
+		$(".box").remove("<h1>235465456767</h1>");
+	})
+</script>

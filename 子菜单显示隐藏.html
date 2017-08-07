@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box{
+				width: 500px;
+				height: 350px;
+				background-color: #DB7093;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.box >li{
+				width: 60px;
+				height: 50px;
+				float: left;
+				margin-left: 20px;
+				color: white;
+				text-align: center;
+			}
+			.list{
+				width: 60px;
+				height: 200px;
+				display: none;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		
+			
+		
+		<ul class="box">
+			<li>
+				<span>第一页</span>
+				<ul class="list">
+					<li>军事</li>
+					<li>社会</li>
+					<li>人文</li>
+					<li>娱乐</li>
+				</ul>
+			</li>
+				
+			<li>
+				<span>第二页</span>
+				<ul class="list">
+					<li>军事</li>
+					<li>社会</li>
+					<li>人文</li>
+					<li>娱乐</li>
+				</ul>
+			</li>
+				
+			<li>
+				<span>第三页</span>
+				<ul class="list">
+					<li>军事</li>
+					<li>社会</li>
+					<li>人文</li>
+					<li>娱乐</li>
+				</ul>
+			</li>
+				
+			<li>
+				<span>第四页</span>
+				<ul class="list">
+					<li>军事</li>
+					<li>社会</li>
+					<li>人文</li>
+					<li>娱乐</li>
+				</ul>
+			</li>
+				
+			<li>
+				<span>第五页</span>
+				<ul class="list">
+					<li>军事</li>
+					<li>社会</li>
+					<li>人文</li>
+					<li>娱乐</li>
+				</ul>
+			</li>
+		</ul>
+		
+	</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+	$('.box >li').hover(function(){
+		$(this).find(".list").slideToggle(300)
+	})
+</script>
